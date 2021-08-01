@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Admin_AspectDao">
+	<!-- 获取大类表的所有信息 -->
+	<select id="getAspects" resultType="com.pojo.Aspect">
+		SELECT * FROM ego.ego_aspect
+	</select>
+	
+	<!-- 修改大类表数据 -->
+	<update id="updateAspects" parameterType="com.pojo.Aspect">
+		UPDATE ego.ego_aspect SET name=#{name} WHERE aspectid=#{aspectid}
+	</update>
+	
+	<!-- 添加大类表数据 -->
+	<update id="addAspects" useGeneratedKeys="true">
+		INSERT INTO ego.ego_aspect VALUES(null,#{name})
+	</update>
+</mapper>

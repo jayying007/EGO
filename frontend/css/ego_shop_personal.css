@@ -1,0 +1,27 @@
+.mybackground{
+    background-color: white;
+}
+
+.wronginputPH::-webkit-input-placeholder {
+    /* WebKit browsers*/
+    color: red;
+    font-size: 14px;
+  }
+  
+  .wronginputPH:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18*/
+    color: red;
+    font-size: 14px;
+  }
+  
+  .wronginputPH::-moz-placeholder {
+    /* Mozilla Firefox 19+*/
+    color: red;
+    font-size: 14px;
+  }
+  
+  .wronginputPH::-ms-input-placeholder {
+    /* Internet Explorer 10+*/
+    color: red;
+    font-size: 14px;
+  }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.dao.lyjAddressDao">
+		<!--展示地址-->
+	<select id="showAddress01" resultType="com.pojo.lyjAddress">
+		SELECT * FROM ego_user_address WHERE uid = #{uid}
+	</select>
+	
+	<select id="showAddress02" resultType="Integer">
+		SELECT aid FROM ego_user_address WHERE uid = #{uid} AND is_default = 1
+	</select>
+	
+	<!--添加收货地址-->
+	<insert id="addAddress">
+		INSERT INTO ego_user_address(uid,receiver, province, city, county, address, phone, postcode) VALUES (#{uid},#{receiver},#{province},#{city},#{county},#{address},#{phone},#{postcode})
+	</insert>
+	
+	<!--修改收货地址显示-->
+	<select id="showeditAddress" resultType="com.pojo.lyjAddress">
+		SELECT * FROM ego_user_address WHERE aid = #{aid}
+	</select>
+	
+	<!--修改收货地址-->
+	<update id="editAddress">
+		UPDATE ego_user_address SET receiver = #{receiver},province = #{province},city = #{city},county = #{county},address = #{address},phone = #{phone},postcode = #{postcode} WHERE aid = #{aid}
+	</update>
+	
+	<!--删除收货地址-->
+	<delete id="deleteAddress">
+		DELETE FROM ego_user_address WHERE ego_user_address.aid = #{aid}
+	</delete>
+	
+	<!--设置默认收货地址-->
+	<update id="setDefaultAddress01">
+		UPDATE ego_user_address SET ego_user_address.is_default = 0 WHERE ego_user_address.uid = #{uid}
+	</update>
+	<update id="setDefaultAddress02">
+		UPDATE ego_user_address SET ego_user_address.is_default = 1 WHERE ego_user_address.aid = #{aid}
+	</update>
+	<select id="setDefaultAddress03" resultType="com.pojo.lyjAddress">
+		SELECT aid FROM ego_user_address WHERE is_default = 0 AND uid = #{uid}
+	</select>
+	
+</mapper>

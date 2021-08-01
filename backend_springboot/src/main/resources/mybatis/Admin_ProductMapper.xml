@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Admin_ProductDao">
+	<!-- 获取商品表的所有信息 -->
+	<select id="getProducts" resultType="com.pojo.Product">
+		SELECT * FROM ego.ego_product
+	</select>
+	
+	<!-- 修改商品表数据 -->
+	<update id="updateProduct" parameterType="com.pojo.Product">
+		UPDATE ego.ego_product SET price=#{price}, property=#{property}, storage=#{storage} WHERE pid=#{pid}
+	</update>
+	
+	<!-- 删除商品数据 -->
+	<delete id="deleteProduct" parameterType="com.pojo.Product">
+		DELETE FROM ego.ego_product WHERE pid=#{pid}
+ 	</delete>
+</mapper>

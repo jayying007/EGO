@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>首页-学子商城</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/scaffolding.css" rel="stylesheet">
+  <link href="css/product_detail.css" rel="stylesheet">
+  <link href="css/offcanvas.min.css" rel="stylesheet">
+  <link href="css/header.css" rel="stylesheet">
+  <link href="css/foot.css" rel="stylesheet">
+  <link href="css/shopdetail.css" rel="stylesheet">
+
+
+  <style>
+    div {
+      /* border: 1px solid #aaa; */
+    }
+
+    .footer {
+      margin-top: 100px;
+    }
+
+    .carousel .item img {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .xz-item-1-img,
+      .xz-item-2-img {
+        /*针对手机屏幕调整图片的位置和尺寸*/
+        right: 0;
+        width: 100%;
+        top: 0;
+      }
+
+      .xz-item-row-1 {
+        height: 430px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .xz-item-3-title {
+        font-size: 1.4em;
+        margin-top: 60px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .img {
+      width: 100px;
+      height: 100px;
+    }
+
+    li {
+      /* padding: 5%; */
+      /* border: 1px solid #aaa; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay"></div>
+  <!-- 页头 -->
+  <!-- 页头 -->
+  <div class="navbar navbar-default page_header" style="margin: 0;background-color: white;padding-top: 10px;">
+    <div class="container">
+
+      <div class="navbar-header logo">
+        <!-- 头部：LOGO -->
+        <a href="/index.html"><img src="pic/index/logo.png" alt=""></a>
+      </div>
+
+      <!-- 右侧链接和文字 -->
+      <span style="display: none;" class="navbar-text  navbar-link navbar-right" id="nickname">&nbsp;&nbsp;<a
+          id="logout" href="#">退出</a></span>
+      <a style="display: none;" id="login" class="navbar-text  navbar-link navbar-right"
+        href="/ego_shop_login.html">登录</a>
+      <span class="navbar-text navbar-right">|</span>
+      <a style="display: none;" id="regist" class="navbar-text  navbar-link navbar-right"
+        href="/ego_shop_register.html">注册</a>
+      <a style="display: none;" id="personal" class="navbar-text  navbar-link navbar-right"
+        href="/ego_shop_personal.html">个人中心</a>
+      <span class="navbar-text navbar-right">|</span>
+      <a class="navbar-text navbar-link navbar-right" href="#" data-target="#myModal2" id="cart1">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+      </a>
+      <span class="navbar-text navbar-right">|</span>
+      <a class="navbar-text navbar-link navbar-right" href="#">
+        <span class="glyphicon glyphicon-heart"></span>
+      </a>
+
+      <!-- 搜索表单 -->
+      <form action="#" class="navbar-form navbar-right md_search_fm">
+        <div class="input-group">
+          <input id="md_keyword" type="text" placeholder="请输入关键词" class="form-control">
+          <span class="input-group-btn">
+            <button id="md_search" type="button" class="btn bg-primary">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!--导航条-->
+  <div class="navbar navbar-inverse navbar-static-top" style="border-radius: 0;padding: 0;margin: 0;">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- 头部：汉堡包按钮 -->
+        <button type="button" class="navbar-toggle pull-left collapsed" data-toggle="offcanvas" data-target="#egoMenu">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- 登录注册下拉菜单 -->
+        <div class="dropdown">
+          <button type="button" class="navbar-toggle pull-right dropdown-toggle" style="color: white;"
+            data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span>
+          </button>
+          <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1"
+            style="background-color: black;height: 100px;text-align: center;">
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="/ego_shop_login.html" style="font-size: 13px; color: white;">登录</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="/ego_shop_register.html"
+                style="font-size: 13px; color: white;">注册</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#" style="font-size: 13px; color: white;" data-target="#myModal2"
+                id="cart2">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+              </a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#" style="font-size: 13px; color: white;">
+                <span class="glyphicon glyphicon-heart"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 导航条折叠部分 -->
+      <div class="collapse navbar-collapse sidebar-offcanvas" id="egoMenu">
+        <!-- 折叠部分：左侧的菜单 -->
+        <ul class="nav navbar-nav">
+          <li><a href="/index.html">首页</a></li>
+          <li><a href="/productList.html?aspect=jianshenfuzhuang" id="jianshenfuzhuang">健身服装</a></li>
+          <li><a href="/productList.html?aspect=jianshenhuju" id="jianshenhuju">健身护具</a></li>
+          <li><a href="/productList.html?aspect=jianshenqicai" id="jianshenqicai">健身器材</a></li>
+          <li><a href="/productList.html?aspect=jianshenshipin" id="jianshenshipin">健身食品</a></li>
+          <li><a href="/productList.html?aspect=yundongxie" id="yundongxie">运动鞋</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模态框（Modal） -->
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            请登录
+          </h4>
+        </div>
+        <div class="modal-body">
+          您尚未登录！请登录后查看
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+          </button>
+          <a href="/login.html">
+            <button type="button" class="btn btn-primary">
+              登录
+            </button>
+          </a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+  </div>
+
+
+
+  <div class="container">
+    <div class="shopdetails">
+      <!-------放大镜-------->
+      <div id="leftbox">
+        <div id="showbox">
+          <img src="" id="img1" width="400" height="550" />
+          <img src="pic/buy3.jpg" id="img2" width="400" height="550" />
+          <img src="pic/buy2.jpg" id="img3" width="400" height="550" />
+          <img src="pic/buy.jpg" id="img4" width="400" height="550" />
+        </div>
+        <!--展示图片盒子-->
+        <div id="showsum"></div>
+        <!--展示图片里边-->
+        <p class="showpage">
+          <a href="javascript:void(0);" id="showlast">
+            < </a> <a href="javascript:void(0);" id="shownext"> >
+          </a>
+        </p>
+
+      </div>
+      <!----中间----->
+      <div class="centerbox">
+        <div class="imgname" id="title"></div>
+        <div class="subtitle"><samp id="subtitle"></samp></div>
+        <div class="price"><samp>￥</samp><samp id="price"></samp></div>
+        <!-- <div class="youhui"></div> -->
+        <div class="kefu">&nbsp;&nbsp;&nbsp;客服：</div>
+        <!-- 下面这个地方要动态生成系列，从product当中获取出来。 -->
+        <div id="propertyDetail" class="kuanshi"></div>
+        <div class="clear"></div>
+        <p class="buy">
+          <input id="goodsNum" type="number" value="1" name="quant  ity" min="1" max="100" />
+          <a id="firstbuy">立即购买</a>
+          <a data-target="#myModal" data-toggle=modal id="addToCart">加入购物车</a>
+        </p>
+        <div class="clear"></div>
+        <!-- <div class="fenx"><a href="#"><img src="pic/shopdetail/tell07.png"></a></div> -->
+        <p class="fuwu">&nbsp;&nbsp;&nbsp;服务承诺：</p>
+        <p class="pay">&nbsp;&nbsp;&nbsp;支付方式：</p>
+      </div>
+    </div>
+
+    <!-- 跳出加入购物车模态框 -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">提示</h4>
+          </div>
+          <div class="modal-body">
+            <h5>添加购物车成功！</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="goToCart()">前往购物车</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-----商品详情评价部分------->
+    <div class="evaluate">
+      <div class="classify">
+        <div class="shopim">
+          <p class="name">青蛙工艺家居<img src="pic/shopdetail/tell01.png" width="22" height="22"></p>
+          <img src="pic/shopdetail/tellbottom.png">
+          <p class="sc"><a href="#">收藏店铺</a></p>
+          <p class="sc"><a href="#">进入店铺</a></p>
+          <div class="search">
+            <input class="left" type="text" />
+            <input class="right" type="button" style=" cursor:pointer;" value="" />
+          </div>
+        </div>
+        <div class="shopfl">
+          <p class="name">本店分类</p>
+          <ul>
+            <li><a href="#"><img src="pic/shopdetail/tell02.png" width="10" height="10">全部商品</a></li>
+            <li><a href="#"><img src="pic/shopdetail/tell02.png" width="10" height="10">木质商品</a></li>
+            <li><a href="#"><img src="pic/shopdetail/tell02.png" width="10" height="10">石制商品</a></li>
+            <li><a href="#"><img src="pic/shopdetail/tell02.png" width="10" height="10">陶制商品</a></li>
+            <li><a href="#"><img src="pic/shopdetail/tell02.png" width="10" height="10">家居厨房</a></li>
+            <li><a href="#"><img src="pic/shopdetail/tell02.png" width="10" height="10">欧式混搭</a></li>
+            <li><a href="#"><img src="pic/shopdetail/tell02.png" width="10" height="10">桌面摆件</a></li>
+            <li><a href="#"><img src="pic/shopdetail/tell02.png" width="10" height="10">书香文房</a></li>
+          </ul>
+        </div>
+        <div class="shopsee">
+          <p class="name">看了又看</p>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see.jpg" width="170" height="245">
+            <p>手绘陶瓷茶壶</p>
+            <p>商城价:168元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see1.jpg" width="170" height="245">
+            <p>茶具特价紫砂</p>
+            <p>商城价:￥234元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see2.jpg" width="170" height="245">
+            <p>创意爱家杯盖</p>
+            <p>商城价:￥38元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see03.png" width="170" height="245">
+            <p>木质棋盘</p>
+            <p>商城价:￥158元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see04.png" width="170" height="245">
+            <p>北欧风创意椅子</p>
+            <p>商城价:￥178元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see5.jpg" width="170" height="245">
+            <p>木质简约衣架</p>
+            <p>商城价:￥68元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see07.png" width="170" height="245">
+            <p>龙猫微观景观小夜灯</p>
+            <p>商城价:￥258元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see06.png" width="170" height="245">
+            <p>火树银花灯</p>
+            <p>商城价:￥858元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/content_04.jpg" width="170" height="245">
+            <p>木质烘脚器</p>
+            <p>商城价:￥108元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see08.png" width="170" height="245">
+            <p>个性实木壁灯</p>
+            <p>商城价:￥68元</p>
+          </a>
+          <a href="#" class="ex01">
+            <img src="pic/shopdetail/see09.png" width="170" height="245">
+            <p>创意马克杯</p>
+            <p>商城价:￥58元</p>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="tabbedPanels">
+        <ul class="tabs">
+          <li><a href="#panel01" class="active">商品详情</a></li>
+          <li><a href="#panel02">累计评价</a></li>
+          <li><a href="#panel03">商品推荐</a></li>
+        </ul>
+
+        <div class="panelContainer">
+          <div class="panel" id="panel01">
+            <p class="sell">商品描述</p>
+            <p id="family_details_text">创意造型 浓浓文艺气息 闲暇时光 与好友分享</p>
+            <p></p>
+            <p class="sell">整体款式</p>
+            <div id="family_details_picture"></div>
+          </div>
+
+          <div class="panel" id="panel02">
+            <p class="sell">买家评价</p>
+            <img src="pic/shopdetail/detail101.png">
+            <p class="judge">全部评价(20)<span>晒图(13)</span></p>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">落***1</p>
+                <p>
+                  杯子很可爱！就是有两三个杯子后面的小图案有一丢丢斜下来，不过没多大关系，其他的还好。有一点真的特别特别好的就是😂包裹的非常非常非常严实，简直就是里三层外三层！杯子完好无损，赠送的刷子也包装的很好😂让我第一眼以为那是一个棉花糖hhh
+                </p>
+                <p class="which">颜色:创意胡子</p>
+                <img src="pic/shopdetail/detail103.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail104.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail105.jpg" width="40px" height="40px">
+
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">席***2</p>
+                <p>质量很好，快递也很快，拆包裹很艰难～～～包得太好了，没有碎。厚度也可以。值得购买！</p>
+                <p class="which">颜色:熊猫套装</p>
+                <img src="pic/shopdetail/detail106.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail107.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">怒***4</p>
+                <p>特别好，必须赞👍，质量好，很漂亮，快递也好快的。还挺优惠。看图吧。</p>
+                <p class="which">颜色:熊猫套装</p>
+                <img src="pic/shopdetail/detail108.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail109.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail110.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">毛***字</p>
+                <p>很精致，用起来很满意，做工也非常的细致，用着很满意哦，非常值得购买</p>
+                <p class="which">颜色:创意胡子</p>
+                <img src="pic/shopdetail/detail103.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail104.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">轻***4</p>
+                <p>店家服务太贴心了，没有破碎，包装非常严实</p>
+                <p class="which">颜色:铁塔套装</p>
+                <img src="pic/shopdetail/detail106.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail107.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">里***2</p>
+                <p>不错，很可爱包装很好，赶快下手吧</p>
+                <p class="which">颜色:四色小猫</p>
+                <img src="pic/shopdetail/detail103.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail104.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">啥***2</p>
+                <p>一直想要咖啡杯，这次总算拿到手了。很不错的陶瓷杯。图案也很可爱。实物与图一样。</p>
+                <p class="which">颜色:熊猫套装</p>
+                <img src="pic/shopdetail/detail108.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail110.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">胡***2</p>
+                <p>宝贝很实惠 拆包装的时候很惊讶 竟然包了四层！完好无损</p>
+                <p class="which">颜色:四色小猫</p>
+                <img src="pic/shopdetail/detail103.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail104.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">落***1</p>
+                <p>
+                  杯子很可爱！就是有两三个杯子后面的小图案有一丢丢斜下来，不过没多大关系，其他的还好。有一点真的特别特别好的就是😂包裹的非常非常非常严实，简直就是里三层外三层！杯子完好无损，赠送的刷子也包装的很好😂让我第一眼以为那是一个棉花糖hhh
+                </p>
+                <p class="which">颜色:创意胡子</p>
+                <img src="pic/shopdetail/detail103.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail104.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail105.jpg" width="40px" height="40px">
+
+              </div>
+            </div>
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">轻***4</p>
+                <p>店家服务太贴心了，没有破碎，包装非常严实</p>
+                <p class="which">颜色:铁塔套装</p>
+                <img src="pic/shopdetail/detail106.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail107.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">里***2</p>
+                <p>不错，很可爱包装很好，赶快下手吧</p>
+                <p class="which">颜色:四色小猫</p>
+                <img src="pic/shopdetail/detail103.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail104.jpg" width="40px" height="40px">
+              </div>
+            </div>
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">怒***4</p>
+                <p>特别好，必须赞👍，质量好，很漂亮，快递也好快的。还挺优惠。看图吧。</p>
+                <p class="which">颜色:熊猫套装</p>
+                <img src="pic/shopdetail/detail108.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail109.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail110.jpg" width="40px" height="40px">
+              </div>
+            </div>
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">里***2</p>
+                <p>不错，很可爱包装很好，赶快下手吧</p>
+                <p class="which">颜色:四色小猫</p>
+                <img src="pic/shopdetail/detail103.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail104.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">啥***2</p>
+                <p>一直想要咖啡杯，这次总算拿到手了。很不错的陶瓷杯。图案也很可爱。实物与图一样。</p>
+                <p class="which">颜色:熊猫套装</p>
+                <img src="pic/shopdetail/detail108.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail110.jpg" width="40px" height="40px">
+              </div>
+            </div>
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">毛***字</p>
+                <p>很精致，用起来很满意，做工也非常的细致，用着很满意哦，非常值得购买</p>
+                <p class="which">颜色:创意胡子</p>
+                <img src="pic/shopdetail/detail103.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail104.jpg" width="40px" height="40px">
+              </div>
+            </div>
+
+            <div class="judge01">
+              <div class="idimg"><img src="pic/shopdetail/detail102.png"></div>
+              <div class="write">
+                <p class="idname">轻***4</p>
+                <p>店家服务太贴心了，没有破碎，包装非常严实</p>
+                <p class="which">颜色:铁塔套装</p>
+                <img src="pic/shopdetail/detail106.jpg" width="40px" height="40px">
+                <img src="pic/shopdetail/detail107.jpg" width="40px" height="40px">
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <div class="panel" id="panel03">
+            <p class="sell">本店热卖商品</p>
+            <div class="com">
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_11.jpg">
+                  <figcaption>木质花瓶</figcaption>
+                </figure>
+                <p>木质简约花瓶 亲近大自然</p>
+                <div class="bottom"><samp>商城价:￥34元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_12.png">
+                  <figcaption>假花篮子</figcaption>
+                </figure>
+                <p>墙上假花优雅系列蓝色篮子</p>
+                <div class="bottom"><samp>商城价:￥543元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_13.png">
+                  <figcaption>富贵花瓶</figcaption>
+                </figure>
+                <p>白色带金色边创意富贵花瓶</p>
+                <div class="bottom"><samp>商城价:￥888元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_14.jpg">
+                  <figcaption>手工编织花篮</figcaption>
+                </figure>
+                <p>白色手工编织花篮 小巧简约/p>
+                  <div class="bottom"><samp>商城价:￥68元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                  </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_15.jpg">
+                  <figcaption>高脚花瓶</figcaption>
+                </figure>
+                <p>高脚优雅系列花瓶 </p>
+                <div class="bottom"><samp>商城价:￥28元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_06.jpg">
+                  <figcaption>龙猫灯</figcaption>
+                </figure>
+                <p>创意暖色龙猫小灯</p>
+                <div class="bottom"><samp>商城价:￥48元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_07.jpg">
+                  <figcaption>墙上挂具</figcaption>
+                </figure>
+                <p>多色可选墙上挂具</p>
+                <div class="bottom"><samp>商城价:￥64元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_08.jpg">
+                  <figcaption>白色小象</figcaption>
+                </figure>
+                <p>白色小象优雅系列套装</p>
+                <div class="bottom"><samp>商城价:￥143元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_09.jpg">
+                  <figcaption>石制壁饰</figcaption>
+                </figure>
+                <p>石制墙上创意装饰用品</p>
+                <div class="bottom"><samp>商城价:￥348元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+              <a href="#" class="ex01">
+                <figure>
+                  <img src="pic/index_img/content_10.jpg">
+                  <figcaption>小假山</figcaption>
+                </figure>
+                <p>小假山室内装饰清新空气</p>
+                <div class="bottom"><samp>商城价:￥448元</samp><input type="button" style=" cursor:pointer;" value="购买" />
+                </div>
+              </a>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-------商品详情评价部结束分------->
+
+  <!-- 页尾 -->
+  <div id="footer">
+
+  </div>
+
+
+  <!-- 设置一个不显示的标签，用于存储数据，由于写script逻辑的原因，只能这么做 -->
+  <div style="display:none" id="param1" value='1'>1</div>
+  <div style="display:none" id="param2" value='1'>1</div>
+
+  <script src="js/jquery.min.js"></script>
+  <!-- <script src="js/offcanvas.js"></script> -->
+  <script src="js/bootstrap.js"></script>
+
+  <script src="js/product_detail.js"></script>
+  <script>
+    //页面加载完成，异步请求服务器端动态数据
+    $(window).load(function () {
+      if (window.sessionStorage) {
+        if (sessionStorage.getItem("uid")) {
+          // 获取登录后的用户信息
+          $("#nickname").css("display", "")
+          $("#personal").css("display", "")
+          var nickname = sessionStorage.getItem("nickname")
+          var html = nickname + $("#nickname").html()
+          $("#nickname").html(html)
+
+          $(".dropdown-menu").css("height", 160)
+          var html2 = `
+                  <li role="presentation">              
+                    <span id="nickname2" role="menuitem" tabindex="-1" href=""  style="font-size: 13px; color: white;"></ span>            
+                  </li>
+                  <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#" style="font-size: 13px; color: white;" data-target="#myModal2" id="cart2">
+                      <span class="glyphicon glyphicon-shopping-cart"></span>
+                    </a>
+                  </li>
+                  <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#" style="font-size: 13px; color: white;">
+                      <span class="glyphicon glyphicon-heart"></span>
+                    </a>
+                  </li>
+                  <li role="presentation">              
+                    <a role="menuitem" tabindex="-1" href="ego_shop_personal.html" style="font-size: 13px; color: white;">个人中心</ a>            
+                  </li>
+                  <li role="presentation">              
+                    <a role="menuitem" tabindex="-1" href="ego_shop_address.html"  style="font-size: 13px; color: white;">地址管理</ a>            
+                  </li>
+                  <li role="presentation">              
+                    <a id="logout2" role="menuitem" tabindex="-1" href="#"  style="font-size: 13px; color: white;">退出</a>            
+                  </li>
+                  `
+          $(".dropdown-menu").html(html2)
+          $("#nickname2").html(nickname)
+        }
+        else {
+          $("#login").css("display", "")
+          $("#regist").css("display", "")
+        }
+      }
+      else
+        alert("该浏览器不支持localStorage")
+
+      $("#md_search").click(function () {
+        var keyword = $("#md_keyword").val()
+        $("#md_keyword").val("")
+        location.href = "/search.html?keyword=" + keyword
+      })
+
+      $("#cart1,#cart2").click(function () {
+        if (sessionStorage.getItem("uid")) {
+          // 获取登录后的用户信息
+          location.href = "/cart.html"
+        }
+        else {
+          $("#myModal2").modal('show')
+        }
+      })
+
+      //  加
+      $("#logout,#logout2").click(function () {
+        sessionStorage.removeItem("uid")
+        sessionStorage.removeItem("nickname")
+        alert("退出成功！")
+        location.href = "index.html"
+      })
+
+
+      let fid2 = window.location.search.split("?")[1]
+      fid2 = fid2.split("=")[1]
+
+      let data   //这个存取从后台获得的该页面的所有信息，family和product
+
+
+      //动态获取数据
+      $.ajax({
+        method: 'GET',
+        url: "http://127.0.0.1:5050/product_detail",  //'http://xuezicai.applinzi.com/index',实际上写后段地址
+        data: {
+          fid: fid2
+        },
+        success: function (data) {
+          data = data
+          //console.log('成功获取到服务器端异步返回的数据：')
+          //这里返回跟该商品家族相关的信息
+          console.log(data)
+
+          // 获取图片
+          let product_pic = data.goods_family.product_pic
+          product_pic = product_pic.split(",")
+          // console.log("-------")
+          // console.log(".." + product_pic[0])
+
+          $("#img1").attr("src", product_pic[0])
+          $("#img2").attr("src", product_pic[1])
+          $("#img3").attr("src", product_pic[2])
+          $("#img4").attr("src", product_pic[3])
+          // $("#img5").attr("src","."+product_pic[4])
+
+          // 获取标题,副标题,价格
+          let product_title = data.goods_family.title
+          let product_subtitle = data.goods_family.subtitle
+          // let product_price=data.goods_family.price   暂时获取不到这个
+          $("#title").html(product_title)
+          $("#subtitle").html(product_subtitle)
+          // $("#price").html(product_price)
+
+          //获取到每个商品的属性property信息，和钱price
+          let flag = 0
+          let arr = new Array();         //用于存储属性，是一个二维数组，因为有多个属性，每个属性有多个值
+          let priceArray = new Array();    //用于存储每个商品对应的价格
+          let pidArray = new Array();
+          for (let i = 0; i < 4; i++) {          //一维长度
+            arr[i] = new Array();    //在声明二维
+            // for(var j=0;j<yNum;j++){      //二维长度
+            //    arr[i][j] = {"count":0,"birdName":""};
+            // }
+          }
+          for (let i = 0; i < data.product.length; i++) {
+            // console.log(data.product[i].property)
+            priceArray[i] = data.product[i].price
+            pidArray[i] = data.product[i].pid
+            let propertyArray = data.product[i].property
+            propertyArray = propertyArray.split(",")   //这里获取到的是   [0]尺码：S    [1]颜色：黑色
+            for (let j = 0; j < propertyArray.length; j++) {
+              propertyFirst = propertyArray[j].split(":")   //获取到s 青色
+              for (let k = 0; k < propertyFirst.length; k++) {
+                arr[j][flag++] = propertyFirst[1]
+                // console.log(propertyFirst[k])
+              }
+
+            }
+            console.log(arr)
+          }
+          function uniq(array) {    //这里做数组去重操作
+            // array.trim();
+            array.sort();
+            var temp = [array[0]];
+            for (var i = 1; i < array.length; i++) {
+              if (array[i] !== temp[temp.length - 1]) {
+                if (array[i] != null)
+                  temp.push(array[i]);
+              }
+            }
+            return temp;
+          }
+          for (let i = 0; i < arr.length; i++) {
+            arr[i] = uniq(arr[i])
+            // console.log(arr[i])
+          }
+
+          //上面获取到钱以后，price参数默认赋第一个价钱值
+          $('#price').html(priceArray[0])
+
+          //这里的目的是获取到例如：尺码，颜色   这两个字段
+          let arr2 = new Array()  //这里存取的是多少种property，每种property的名字
+          let a = data.product[0].property.split(",")
+          for (let i = 0; i < a.length; i++) {
+            arr2[i] = a[i].split(":")[0]
+          }
+
+          //购物车操作,需要传用户ID，pid,数量,属性（默认传第一个产品的属性即可,貌似都可以不用传，每个pid对应一个属性）
+          // console.log(chosenPID,goodsNum)
+          function addToCart() {  //pid, num
+
+            // if($('#param1')[0].innerText==1||$('#param2')[0].innerText==1)
+            // {
+            //   alert("您还未选完整！")
+            //   return
+            // }
+
+            let uid = window.sessionStorage.getItem("uid")
+            if (!uid) {
+              alert("您还未登录，即将前往登录！")
+              window.location.href = "ego_shop_login.html"
+              return;
+            }
+            console.log("添加购物车")
+            //第一步：获取用户ID，待完善。
+            let pid
+            let param1 = $('#param1')[0].innerText
+            if (arr2.length > 1) {   //两个以上的属性
+              let param2 = $('#param2')[0].innerText
+              for (let i = 0; i < data.product.length; i++) {   //根据生成的几个
+                let allProperty = data.product[i].property
+                let propertyArray = allProperty.split(",")
+                let property1 = propertyArray[0].split(":")[1]
+                let property2 = propertyArray[1].split(":")[1]
+                if (param1 == property1 && param2 == property2) {
+                  pid = data.product[i].pid
+                }
+              }
+            }
+            else {  //只有一个属性
+              for (let i = 0; i < data.product.length; i++) {   //根据生成的几个
+                let allProperty = data.product[i].property
+                let property1 = allProperty.split(":")[1]
+                if (param1 == property1) {
+                  pid = data.product[i].pid
+                }
+              }
+            }
+            console.log("您选择的pid为" + pid)
+            let num = $('#goodsNum')[0].value
+            console.log("-----" + num)
+            // window.location.href = "cart.html?uid=" + uid + '&pid=' + pid + '&num=' + num  //这里传输过去的地址，并且带上参数。
+            //发送ajax请求给后端
+            $.ajax({
+              method: 'GET',
+              url: "http://127.0.0.1:5050/addToCart",  //'http://xuezicai.applinzi.com/index',实际上写后段地址
+              data: {
+                uid: uid,
+                pid: pid,
+                num: num
+              },
+              success: function (data) {
+                console.log("返回结果为：" + data)
+                if (data) {
+                  console.log("添加购物车成功")
+
+                  // $('#addToCart').attr("data-toggle","modal")
+                }
+              },
+              error: function (e) {
+                console.log(e)
+              }
+            })
+          }
+          $('#addToCart').bind("click", addToCart) //(chosenPID, goodsNum)
+
+          function firstBuy() {  //pid, num
+            console.log("立即购买")
+            //第一步：获取用户ID，待完善。
+            let uid = window.sessionStorage.getItem("uid")
+            if (!uid) {
+              alert("您还未登录，即将前往登录！")
+              window.location.href = "ego_shop_login.html"
+              return;
+            }
+            //第一步：获取用户ID，待完善。
+            let pid
+            let param1 = $('#param1')[0].innerText
+            if (arr2.length > 1) {   //两个以上的属性
+              let param2 = $('#param2')[0].innerText
+              for (let i = 0; i < data.product.length; i++) {   //根据生成的几个
+                let allProperty = data.product[i].property
+                let propertyArray = allProperty.split(",")
+                let property1 = propertyArray[0].split(":")[1]
+                let property2 = propertyArray[1].split(":")[1]
+                if (param1 == property1 && param2 == property2) {
+                  pid = data.product[i].pid
+                }
+              }
+            }
+            else {  //只有一个属性
+              for (let i = 0; i < data.product.length; i++) {   //根据生成的几个
+                let allProperty = data.product[i].property
+                let property1 = propertyArray[0].split(":")[1]
+                if (param1 == property1) {
+                  pid = data.product[i].pid
+                }
+              }
+            }
+            console.log("您选择的pid为" + pid)
+            let num = $('#goodsNum')[0].value
+            window.location = './pre_order.html?uid=' + uid + '&pids=' + pid + '&counts=' + num
+            // window.location.href = "order_pay.html?uid=" + uid + '&pid=' + pid + '&num=' + num  //这里传输过去的地址，并且带上参数。
+          }
+          $('#firstbuy').bind("click", firstBuy)
+
+
+
+          //下面要做的就是动态生成属性数据，处理动态数据
+          let ulClassArray = new Array()
+          let htmlPropertyDetail = ``
+          if (arr2[0] == "") {
+            console.log("无属性")
+          }
+          else {
+            for (let i = 0; i < arr2.length; i++) {
+              console.log(arr2[0])
+              htmlPropertyDetail += `<p>&nbsp;&nbsp;&nbsp;${arr2[i]}</p>`
+              ulClassArray[i] = "ul" + i
+              htmlPropertyDetail += `<ul class="${ulClassArray[i]}">`
+              for (let j = 0; j < arr[i].length; j++) {
+                console.log(arr[i][j])
+                if (i == 0)  //默认选中第一个属性
+                {
+                  htmlPropertyDetail += `<li onclick="changePriceAndParam1(this.innerText,'${arr[0]}','${priceArray}','${pidArray}')" ><a href="#">${arr[i][j]}<a/></li>`
+                  continue
+                }
+                htmlPropertyDetail += `<li  onclick="changeParam2(this.innerText,'${arr[1]}')"><a href="#">${arr[i][j]}<a/></li>`
+              }
+              htmlPropertyDetail += `</ul>`
+              if (i == 0) htmlPropertyDetail += `<br/>`;
+            }
+            console.log(htmlPropertyDetail)
+            $('#propertyDetail').html(htmlPropertyDetail)
+          }
+
+          //处理左侧图片展示
+          $(document).ready(function () {
+            var showproduct = {
+              "boxid": "showbox",
+              "sumid": "showsum",
+              "boxw": 400,
+              "boxh": 550,
+              "sumw": 60,//列表每个宽度,该版本中请把宽高填写成一样
+              "sumh": 60,//列表每个高度,该版本中请把宽高填写成一样
+              "sumi": 7,//列表间隔
+              "sums": 5,//列表显示个数
+              "sumsel": "sel",
+              "sumborder": 1,//列表边框，没有边框填写0，边框在css中修改
+              "lastid": "showlast",
+              "nextid": "shownext"
+            };//参数定义	  
+            $.ljsGlasses.pcGlasses(showproduct);//方法调用，务必在加载完后执行
+
+            $(function () {
+              $('.tabs a').click(function () {
+                var $this = $(this);
+                $('.panel').hide();
+                $('.tabs a.active').removeClass('active');
+                $this.addClass('active').blur();
+                var panel = $this.attr("href");
+                $(panel).show();
+                return false;  //告诉浏览器  不要纸箱这个链接
+              })//end click
+              $(".tabs li:first a").click()   //web 浏览器，单击第一个标签吧
+            })//end ready
+
+            for (let i = 0; i < ulClassArray.length; i++)   //修改选中的选项背景颜色
+            {
+              let clas = "." + ulClassArray[i] + " li"
+              $(clas).click(function () {
+                console.log(clas)
+                $(clas).removeClass("now");
+                $(this).addClass("now")
+              });
+            }
+
+          });
+
+          //处理底下商品详情文字以及图片
+          let family_details_text = data.goods_family.detail_text
+          family_details_text = family_details_text.split(",")
+          $('#family_details_text').html(family_details_text)
+
+          let family_details_picture = data.goods_family.detail_pic
+          family_details_picture = family_details_picture.split(",")
+
+          console.log(family_details_text, family_details_picture)
+
+          let htmlDetailsText = ``
+          for (let i = 0; i < family_details_picture.length; i++) {
+            let temp = "." + family_details_picture[i]
+            htmlDetailsText += `<img src="${temp}" class="img-responsive" style="margin-bottom:100px;"></img>`
+            // if (i == 0) htmlDetailsText += `<br/>`;
+          }
+          // console.log(htmlPropertyDetail)
+          $('#family_details_picture').html(htmlDetailsText)
+
+
+          let htmlfooter = `<div class="foot footer">
+    <div class="container">
+      <div class="row " style="margin-bottom: 20px;">
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-12 col-xs-4 center-block"><img class="img-responsive" style="width: 120px;height: 60px;"
+                src="/pic/index/foot_logo.PNG" alt=""></div>
+            <div class="col-md-12 col-xs-8 center-block">
+              <span>手机：18569065625（微信同号）</span><br />
+              <span>服务热线：400-7070-669</span><br />
+              <span>地址：华南师范大学南海校区软件学院</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row center-block">
+            <div class="col-md-6 col-xs-6">
+              <div class="row center-block"><img class="img-responsive" style="width: 100px;height: 100px;"
+                  src="/pic/index/foot1.png" alt=""></div>
+              <div class="row center-block"><span style="font-size: 15px;color: white;">淘宝登录</span></div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <div class="row center-block"><img class="img-responsive" style="width: 100px;height: 100px;"
+                  src="/pic/index/foot2.png" alt=""></div>
+              <div class="row center-block"><span style="font-size: 15px;color: white;">京东服务号</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-12 col-xs-6 center-block" style="margin-bottom: 10px;"><span><a
+                  href="#">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">合作招商</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+                  href="#">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">销售联盟</a></span></div>
+            <div class="col-md-12 col-xs-6">
+              <div class="row center-block" style="margin-bottom: 10px;">
+                <span>服务热线</span><br />
+                <span style="font-size: 20px;color: white;">400-7070-669</span>
+              </div>
+              <div class="row center-block"><button class="btn btn-primary">在线咨询</button><br /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center">XX©2013-2019 XX公司版权所有 粤ICP备08010314号-43 </div>
+        </div>
+      </div>
+    </div>
+  </div>`
+
+          $("#footer").html(htmlfooter)
+
+
+        },
+        error: function (e) {
+          console.log(e)
+        }
+      })
+    })
+
+  </script>
+</body>
+
+</html>

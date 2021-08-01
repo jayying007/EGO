@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.BeforeDao">
+	
+	<select id="getF1"  resultType="com.pojo.CarouselItems">
+	 	select * from ego_index_carousel
+	</select>
+	
+	<select id="getF2"  resultType="com.pojo.TopSaleItems">
+	 	select * from ego_index_topSale limit 6
+	</select>
+	
+	<select id="getF3"  resultType="com.pojo.MProduct">
+	 	select ego_family.fid,title,subtitle,sold_count,product_pic,price from ego_family left join ego_product on ego_family.fid=ego_product.fid where aspectid=1 group by ego_family.fid limit 6
+	</select>
+	
+	<select id="getF4"  resultType="com.pojo.MProduct">
+	 	select ego_family.fid,title,subtitle,sold_count,product_pic,price from ego_family left join ego_product on ego_family.fid=ego_product.fid where aspectid=2 group by ego_family.fid limit 6
+	</select>
+	
+	<select id="getF5"  resultType="com.pojo.MProduct">
+	 	select ego_family.fid,title,subtitle,sold_count,product_pic,price from ego_family left join ego_product on ego_family.fid=ego_product.fid where aspectid=3 group by ego_family.fid limit 6
+	</select>
+	
+	<select id="getF6"  resultType="com.pojo.MProduct" >
+	 	select ego_family.fid,title,subtitle,sold_count,product_pic,price from ego_family left join ego_product on ego_family.fid=ego_product.fid where aspectid=4 group by ego_family.fid limit 6
+	</select>
+	
+	<select id="getF7"  resultType="com.pojo.MProduct">
+	 	select ego_family.fid,title,subtitle,sold_count,product_pic,price from ego_family left join ego_product on ego_family.fid=ego_product.fid where aspectid=5 group by ego_family.fid limit 6
+	</select>
+	
+	<select id="getAspectid"  resultType="Integer" parameterType="String">
+	 	select aspectid from ego_aspect where name = #{name}
+	</select>
+	
+	<select id="getProdByAspectid" resultType="com.pojo.MProduct" parameterType="Integer">
+		select ego_family.fid,title,subtitle,sold_count,product_pic,price from ego_family 
+		left join ego_product on ego_family.fid=ego_product.fid where aspectid = #{aspectid} group by ego_family.fid
+	</select>
+	
+	<select id="getAllProd"  resultType="com.pojo.MProduct">
+	 	select ego_family.fid,title,subtitle,sold_count,product_pic,price from ego_family 
+	 	left join ego_product on ego_family.fid=ego_product.fid group by ego_family.fid
+	</select>
+	
+	<select id="getProdByKeyword" resultType="com.pojo.MProduct" parameterType="String">
+	 	select ego_family.fid,title,subtitle,sold_count,product_pic,price from ego_family 
+	 	left join ego_product on ego_family.fid=ego_product.fid where title like concat('%',#{keyword},'%') group by ego_family.fid
+	</select>
+</mapper>

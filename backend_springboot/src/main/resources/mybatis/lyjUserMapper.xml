@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.dao.lyjUserDao">
+	<!-- 查询用户信息 -->
+	<select id="selectUserBynickname" resultType="com.pojo.lyjUser">
+		SELECT * FROM ego_user WHERE nickname = #{nickname} AND upassword = #{upassword} 
+	</select>
+	
+	<!--查询账户名是否存在-->
+	<select id="selectnicknameExist" resultType="com.pojo.lyjUser">
+		SELECT * FROM ego_user WHERE nickname = #{nickname}
+	</select>
+	
+	<!--查询邮箱是否存在-->
+	<select id="selectemailExist" resultType="com.pojo.lyjUser">
+		SELECT * FROM ego_user WHERE email = #{email}
+	</select>
+	
+	<!--查询手机号是否存在-->
+	<select id="selectphoneExist" resultType="com.pojo.lyjUser">
+		SELECT * FROM ego_user WHERE phone = #{phone}
+	</select>
+	
+	<!--查询注册账号是否符合要求-->
+	<select id="selectregistermsgExist" resultType="com.pojo.lyjUser">
+		SELECT * FROM ego_user WHERE nickname = #{nickname} OR email = #{email} OR phone = #{phone}
+	</select>
+	
+	<!--插入新用户-->
+	<insert id="addUser">
+		INSERT INTO ego_user(nickname,upassword,phone,email) VALUES(#{nickname}, #{upassword}, #{phone}, #{email})
+	</insert>
+	
+	<!--展示个人中心-->
+	<select id="showPersonal" resultType="com.pojo.lyjUser">
+		SELECT * FROM ego_user WHERE uid = #{uid}
+	</select>
+	
+	<!--修改个人中心信息-->
+	<update id="savePersonal" parameterType="com.pojo.lyjUser">
+		UPDATE ego_user SET upassword = #{upassword},gender = #{gender},uname = #{uname} WHERE uid = #{uid}
+	</update>
+	
+	
+</mapper>

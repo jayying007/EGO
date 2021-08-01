@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Admin_UserAddressDao">
+	<!-- 获取收货地址表的所有信息 -->
+	<select id="getUserAddress" resultType="com.pojo.UserAddress">
+		SELECT * FROM ego.ego_user_address
+	</select>
+	
+	<!-- 修改收货地址表数据-->
+	<update id="updateUserAddress" parameterType="com.pojo.UserAddress">
+		UPDATE ego.ego_user_address SET receiver=#{receiver}, phone=#{phone}, province=#{province}, city=#{city}, county=#{county}, address=#{address}, postcode=#{postcode}, is_default=#{is_default} WHERE aid=#{aid}
+	</update>
+	
+	<!-- 删除收货地址表数据-->
+	<delete id="deleteUserAddress" parameterType="com.pojo.UserAddress">
+		DELETE FROM ego.ego_user_address WHERE aid=#{aid}
+ 	</delete>
+ 	
+</mapper>

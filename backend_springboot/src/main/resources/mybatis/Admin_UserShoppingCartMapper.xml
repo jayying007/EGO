@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Admin_UserShoppingCartDao">
+	<!-- 获取用户购物车表的所有信息 -->
+	<select id="getUserShoppingCart" resultType="com.pojo.UserShoppingCart">
+		SELECT * FROM ego_user_shopping_cart
+	</select>
+	
+	<!-- 修改用户购物车表数据-->
+	<update id="updateUserShoppingCart" parameterType="com.pojo.UserShoppingCart">
+		UPDATE ego.ego_user_shopping_cart SET pid=#{pid},count=#{count} WHERE cid=#{cid}
+	</update>
+	
+	<!-- 删除用户购物车表数据 -->
+	<delete id="deleteUserShoppingCart" parameterType="com.pojo.UserShoppingCart">
+		DELETE FROM ego.ego_user_shopping_cart WHERE cid=#{cid}
+ 	</delete>
+ 	
+</mapper>

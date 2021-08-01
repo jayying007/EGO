@@ -1,0 +1,151 @@
+.mybackground {
+  background-color: white;
+}
+
+.btn-mine {
+  max-width: 120px;
+  margin-right: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  color: whitesmoke;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #31b0d5;
+  border: 1px solid white;
+  outline-color: #31b0d5;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.btn-mine:active {
+  margin-left: 20px;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  color: whitesmoke;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #286090;
+  border: 1px solid white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.myptxt {
+  margin-top: 5px;
+}
+
+.myaddress {
+  border: 1px solid;
+  border-color: gray;
+  margin-left: 20px;
+}
+
+.myright {
+  text-align: right;
+  font-weight: bold;
+}
+
+.myleft {
+  text-align: left;
+}
+
+.myinner {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-mine-edit {
+  color: #31b0d5;
+  border: 0px none;
+  background: #ffffff
+}
+
+.btn-mine-edit:focus {
+  outline: none;
+}
+
+.btn-mine-edit:hover {
+  color: #286090;
+}
+
+.btn-mine-delete {
+  color: red;
+  border: 0px none;
+  background: #ffffff
+}
+
+.btn-mine-delete:focus {
+  outline: none;
+}
+
+.btn-mine-delete:hover {
+  color: #8B0000;
+}
+
+.btn-mine-defaultaddress{
+  color: green;
+  border: 0px none;
+  background: #ffffff
+}
+
+.btn-mine-defaultaddress:hover{
+  color: #093002;
+}
+
+.btn-mine-defaultaddress:focus {
+  outline: none;
+}
+
+
+.wronginputPH::-webkit-input-placeholder {
+  /* WebKit browsers*/
+  color: red;
+  font-size: 14px;
+}
+
+.wronginputPH:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18*/
+  color: red;
+  font-size: 14px;
+}
+
+.wronginputPH::-moz-placeholder {
+  /* Mozilla Firefox 19+*/
+  color: red;
+  font-size: 14px;
+}
+
+.wronginputPH::-ms-input-placeholder {
+  /* Internet Explorer 10+*/
+  color: red;
+  font-size: 14px;
+}
+
+.defaultADbg{
+  background-color: skyblue;
+}
+
+.myfontweight{
+  font-weight: bold;
+}

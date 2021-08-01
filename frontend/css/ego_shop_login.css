@@ -1,0 +1,109 @@
+.ego-main {
+  background-image: url(/pic/ego_bg.jpg);
+  background-size: cover;
+}
+
+.ego-main-center {
+  margin-bottom: 100px;
+  margin-top: 100px;
+  background-color: rgba(105, 105, 105, 0.2);
+}
+
+.ego-main-font {
+  color: white;
+}
+
+.ego-main-form {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.btn-mine {
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid white;
+  outline-color: #696969;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.btn-mine:hover {
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #8B0000;
+  outline-color: #8B0000;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  color: #696969
+}
+
+.a-mine {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+
+.a-mine:hover {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #8B0000;
+  text-decoration: none;
+}
+
+
+.a-title {
+  border: none;
+  color:#50a4b9;
+  text-decoration: none;
+}
+
+.a-title:hover {
+  border: none;
+  color: rgb(8, 105, 161);
+  text-decoration: none;
+}

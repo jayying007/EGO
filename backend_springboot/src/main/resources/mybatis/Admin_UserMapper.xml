@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Admin_UserDao">
+	<!-- 获取用户表的所有信息 -->
+	<select id="getUser" resultType="com.pojo.User">
+		SELECT * FROM ego.ego_user
+	</select>
+	
+	<!-- 修改用户表数据-->
+	<update id="updateUser" parameterType="com.pojo.User">
+		UPDATE ego.ego_user SET nickname=#{nickname}, upassword=#{upassword}, time=#{time}, email=#{email}, phone=#{phone}, uname=#{uname}, gender=#{gender} WHERE uid=#{uid}
+	</update>
+	
+	<!-- 删除用户表数据 -->
+	<delete id="deleteUser" parameterType="com.pojo.User">
+		DELETE FROM ego.ego_user WHERE uid=#{uid}
+ 	</delete>
+ 	
+</mapper>

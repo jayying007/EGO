@@ -1,0 +1,12 @@
+.foot{
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-top: 3px solid rgb(18, 135, 173);
+    background-color: black;
+    color: rgb(129, 128, 128);
+  }
+
+  .foot a{
+    text-decoration: none;
+  }

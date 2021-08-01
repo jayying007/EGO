@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.AddToCartDao">
+	<select id="selectCart" resultType="com.pojo.ProductCart" parameterType="com.pojo.ProductCart">
+		select * from ego_user_shopping_cart where uid=#{uid} and pid=#{pid}
+	</select>
+	<insert id="addToCart"  keyProperty="cid" parameterType="com.pojo.ProductCart">
+		insert into ego_user_shopping_cart values(null,#{uid},#{pid},#{count})
+	</insert>
+	<update id="updateCart"  keyProperty="cid" parameterType="com.pojo.ProductCart">
+		update ego_user_shopping_cart set count=#{count}+count where uid=#{uid} and pid=#{pid}
+	</update>		
+</mapper>

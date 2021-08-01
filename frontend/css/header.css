@@ -1,0 +1,54 @@
+.logo img{
+    width: 220px;
+    height: 60px;
+    background-color: white;
+}
+#egoMenu li{
+    text-align: center;
+    width: 137px;
+    height: 50px;
+}
+.navbar .nav > li > a{
+    color: white;
+}
+.navbar .nav > li > a:hover {
+    background-color: #00B2EE;
+}
+.navbar .nav >li >a:active{
+    background-color:#00B2EE;
+}
+
+.navbar .nav >li .active{
+    background-color:#00B2EE;
+}
+
+.dropdown-menu{
+  visibility: hidden;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: #00B2EE;
+}
+.dropdown-menu >li >a:active{
+    background-color:#00B2EE;
+}
+
+.dropdown-menu >li .active{
+    background-color:#00B2EE;
+}
+
+@media screen and (max-width:768px){
+    .page_header{
+      display: none;
+    }
+    #egoMenu li{
+      text-align: center;
+      width: 100%;
+      height: 50px;
+    }
+
+    .dropdown-menu{
+      visibility:visible;
+    }
+
+}

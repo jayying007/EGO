@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.dao.UserDao">
+	<!-- 查询用户信息 -->
+	<select id="getAllAddress" resultType="com.pojo.JaneAddress" parameterType="Integer">
+		select * from ego_user_address where uid=#{uid}
+	</select>
+</mapper>

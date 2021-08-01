@@ -1,0 +1,27 @@
+img{
+    max-height: 100px;
+}
+.text-clamp{
+    overflow:hidden; 
+    text-overflow:ellipsis;
+    display:-webkit-box; 
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2; 
+}
+.nochoose{
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 8px;
+    background-color: white;
+    overflow: hidden;
+}
+.choose{
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 8px;
+    background-color: white;
+    overflow: hidden;
+    border: 2px solid tomato;
+}

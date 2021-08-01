@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Admin_FamilyDao">
+	<!-- 获取商品类别表的所有信息 -->
+	<select id="getFamilys" resultType="com.pojo.Family">
+		SELECT * FROM ego.ego_family
+	</select>
+	
+	<!-- 修改商品类别表数据 -->
+	<update id="updateFamilys" parameterType="com.pojo.Family">
+		UPDATE ego.ego_family SET title=#{title}, subtitle=#{subtitle}, sold_count=#{sold_count}, detail_text=#{detail_text}, product_pic=#{product_pic}, detail_pic=#{detail_pic} WHERE fid=#{fid}
+	</update>
+	
+	<!-- 删除商品类别表数据,要连带删除商品评价表和商品表数据 -->
+	<delete id="deleteFamily1" parameterType="com.pojo.Family">
+		DELETE FROM ego.ego_product_comment WHERE fid=#{fid};
+ 	</delete>
+ 	<delete id="deleteFamily2" parameterType="com.pojo.Family">
+		DELETE FROM ego.ego_product WHERE fid=#{fid};
+	</delete>
+		<delete id="deleteFamily" parameterType="com.pojo.Family">
+		DELETE FROM ego.ego_family WHERE fid=#{fid};
+	</delete>
+	
+	<!-- 增加商品类别表数据 -->
+	<update id="addFamily" parameterType="com.pojo.Family">
+		INSERT INTO ego.ego_family VALUES(null, #{aspectid},#{title},#{subtitle},#{sold_count},#{detail_text},#{product_pic},#{detail_pic})
+	</update>
+	
+</mapper>

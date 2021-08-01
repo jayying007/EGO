@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ego商城后端管理系统</title>
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- TABLE STYLES-->
+    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <!-- 顶部栏 header.html -->
+        <div id="header"></div>
+
+        <!-- 左边导航栏项目 -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="index.html"><i class="fa fa-dashboard"></i> 主页 </a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> 商品 </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ego_aspect.html"> 大类表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_family.html"> 商品类别表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_product.html"> 商品表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_product_comment.html"> 商品评价表 </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> 用户 </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ego_user.html" class="active-menu"> 用户表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_address.html"> 收货地址表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_shopping_cart.html"> 用户购物车表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_order.html"> 用户订单表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_order_details.html"> 用户订单详情 </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="addNewInfo.html"><i class="fa fa-fw fa-file"></i> 新增数据项 </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- 内容部分  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            用户表 <small> ego_user </small>
+                        </h1>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTable">
+                                        
+                                        <!--这部分用js加载  搜索关键词："hzj加载表格内容" 跳转到js代码-->
+                                        
+                                        <!-- 修改数据模态框 -->
+                                        <div class="modal fade" id="myModifyModal" tabindex="-1" role="dialog" aria-labelledby="myModifyModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title" id="myModifyModalLabel">详细信息</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form role="form" id='detailForm'>
+                                                            <div class="form-group">
+                                                                <label>uid</label>
+                                                                <input readonly='true' type="text" class="form-control" id='uid'/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>nickname</label>
+                                                                <input type="text" class="form-control" id='nickname'/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>upassword</label>
+                                                                <input type="text" class="form-control" id='upassword'/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>email</label>
+                                                                <input type="text" class="form-control" id='email'/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>phone</label>
+                                                                <input type="text" class="form-control" id='phone'/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>uanme</label>
+                                                                <input type="text" class="form-control" id='uname'/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>gender</label>
+                                                                <input type="text" class="form-control" id='gender'/>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="updateData()">提交更改</button>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal -->
+                                        </div>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+
+    <!-- Custom Js -->
+    <!--hzj加载表格内容-->
+    <script>
+        $(document).ready(function(){
+            $("#header").load("header.html");
+            showTableData();
+        });
+
+        //渲染表格内容
+        function showTableData() {
+            // console.log("call showTableData!")
+            $.ajax({
+                method: 'GET',
+                url: "http://127.0.0.1:5050/egoAdmin/ego_user",
+                data: '',
+                success: function (data, xhr, err) {
+                    var dataTableContent = $('#dataTable').html()
+                    //开始处理thead
+                    dataTableContent +=
+                        `
+                <thead>
+                    <tr>
+                        <th>operation</th>
+                `
+                    //获取表头属性
+                    theads = new Array()
+                    theads.push('operation')
+                    for (i in data[0]) {
+                        theads.push(i)
+                        dataTableContent +=
+                            `<th>${i}</th>
+                     `
+                    }
+                    //thead处理完毕
+                    dataTableContent +=
+                        `
+                    </tr>
+                </thead>
+                `
+
+                    //开始处理tbody
+                    dataTableContent +=
+                        `
+                <tbody>
+                `
+                    // console.log(dataTableContent)
+
+                    //处理tbody里面的内容
+                    for (let i = 0; i < data.length; i++) {
+                        dataTableContent +=
+                            `<tr>
+                    `
+                        uid = data[i]['uid']
+                        dataTableContent +=
+                            `<th>
+                                <a id='uid=${uid}' data-toggle="modal" data-target="#myModifyModal">修改</a>
+                                <a class="bg-color-red" id='delete=${uid}'>删除</a>
+                                </th>
+                    `
+                        for (let j = 1; j < theads.length; j++) {//j=1，要跳过operation
+                            let keyname = theads[j]
+                            let showContent = data[i][keyname]
+                            
+                            if (showContent!=null && showContent.length > 12) {
+                                showContent = showContent.slice(0, 12) //字符串太长，截取前面一部分显示
+                                showContent += `...`
+                            }
+                            //使用x,y的形式去标记当前的单元格的坐标
+                            dataTableContent +=
+                                `<th id='${i},${j}'>${showContent}</th>
+                        `
+                        }
+                        dataTableContent +=
+                            `</tr>
+                    `
+                    }
+                    //tbody处理完毕
+                    dataTableContent +=
+                        `
+                </tbody>
+                `
+                    $('#dataTable').html(dataTableContent)
+                    $('#dataTable').dataTable(); //将表格做成定义好的格式
+                    
+                    bindToolTip(data); //将AJAX得到的数据当成参数传给外面的函数,这个函数用来绑定悬停查看详细信息
+
+                    //选择所有带有id属性且值以"uid="开头的元素,当点击时会把这一行的数据渲染到模态框中
+                    $(document).on('click', "[id^='uid=']", function(){
+                        let uid = $(this).attr('id').split('=')[1]
+                        let row = data[uid-1]
+                        //修改模态框的内容
+                        $('#uid').val(row['uid'])
+                        $('#nickname').val(row['nickname'])
+                        $('#upassword').val(row['upassword'])
+                        $('#time').val(row['time'])
+                        $('#email').val(row['email'])
+                        $('#phone').val(row['phone'])
+                        $('#uname').val(row['uname'])
+                        $('#gender').val(row['gender'])
+                    });
+
+                    //选择所有带有id属性且值以"delete="开头的元素,当点击时会把这一行的数据获取到
+                    $(document).on('click', "[id^='delete=']", function(){
+                        let uid = $(this).attr('id').split('=')[1]
+                        newData={
+                            uid: uid
+                        }
+                        deleteData(newData)
+                    });
+                },
+                error: function (xhr, err) {
+                    alert("数据获取失败！", xhr, err)
+                }
+            })
+        }
+
+        //鼠标悬停显示详细内容
+        function bindToolTip(data) {
+            /*写js代码，超出部分用鼠标悬停时，tooltip显示完整内容*/
+            $(document).on('mouseenter', "#dataTable th", function () {
+                if($(this).attr('id')){
+                    let X = $(this).attr('id').split(',')[0]
+                    let Y = $(this).attr('id').split(',')[1]
+                    let keyname = theads[Y]
+                    $(this).attr('data-toggle', 'tooltip').attr('title', data[X][keyname]);
+                }
+            });
+            //鼠标离开时，tooltip消失
+            $(document).on('mouseleave', '#dataTable th', function () {
+                $(this).attr('data-toggle', '');
+            });
+        }
+
+        //将修改更新到数据库中
+        function updateData(){
+            let newData = {
+                uid: $('#uid').val(),
+                nickname: $('#nickname').val(),
+                upassword: $('#upassword').val(),
+                time: $('#time').val(),
+                email: $('#email').val(),
+                phone: $('#phone').val(),
+                uname: $('#uname').val(),
+                gender: $('#gender').val()
+            }
+            $.ajax({
+                method: 'POST',
+                url: "http://127.0.0.1:5050/egoAdmin/ego_user/updateData",
+                data: newData,
+                success: function (data, xhr, err) {
+                    console.log(data);
+                    alert("数据修改成功！")
+                },
+                error: function (xhr, err) {
+                    alert("数据修改失败！", xhr, err)
+                }
+            });
+        }
+
+        //删除所选行信息
+        function deleteData(newData){
+            let result = confirm("确认删除这条数据吗？")
+            if (result) {
+                $.ajax({
+                    method: 'GET',
+                    url: "http://127.0.0.1:5050/egoAdmin/ego_user/deleteData",
+                    data: newData,
+                    success: function (data, xhr, err) {
+                        console.log(data)
+                        alert(`删除成功！用户表(ego_user)中有 1 条记录被删除！`)
+                    },
+                    error: function (xhr, err) {
+                        alert("删除失败！后台服务器好像遇到了点问题", xhr, err)
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ego商城后端管理系统</title>
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- 顶部栏 header.html -->
+        <div id="header"></div>
+
+        <!-- 左边导航栏项目 -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="index.html"  class="active-menu"><i class="fa fa-dashboard"></i> 主页 </a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> 商品 </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ego_aspect.html"> 大类表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_family.html"> 商品类别表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_product.html"> 商品表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_product_comment.html"> 商品评价表 </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> 用户 </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ego_user.html"> 用户表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_address.html"> 收货地址表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_shopping_cart.html"> 用户购物车表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_order.html"> 用户订单表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_order_details.html"> 用户订单详情 </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="addNewInfo.html"><i class="fa fa-fw fa-file"></i> 新增数据项 </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            主页 <small>总览</small>
+                        </h1>
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-green">
+                            <div class="panel-body">
+                                <i class="fa fa-bar-chart-o fa-5x"></i>
+                                <h3>8,457</h3>
+                            </div>
+                            <div class="panel-footer back-footer-green">
+                                今日访问量
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-blue">
+                            <div class="panel-body">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+                                <h3>52,160 </h3>
+                            </div>
+                            <div class="panel-footer back-footer-blue">
+                                今日成交量
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-red">
+                            <div class="panel-body">
+                                <i class="fa fa fa-comments fa-5x"></i>
+                                <h3>15,823 </h3>
+                            </div>
+                            <div class="panel-footer back-footer-red">
+                                今日新增评论
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-primary text-center no-boder bg-color-brown">
+                            <div class="panel-body">
+                                <i class="fa fa-rmb fa-5x"></i>
+                                <h3>36,752 </h3>
+                            </div>
+                            <div class="panel-footer back-footer-brown">
+                                今日成交额
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#header").load("header.html");
+        });
+    </script>
+
+</body>
+
+</html>

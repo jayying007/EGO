@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>ego易购商城登录</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/offcanvas.min.css" rel="stylesheet">
+  <link href="css/header.css" rel="stylesheet">
+  <link href="css/foot.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="css/ego_shop_login.css" type="text/css">
+  <script src="js/offcanvas.js"></script>
+</head>
+
+<body>
+  <!--页头-->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6  col-md-2 hidden-xs">
+        <!--点击logo可以直接跳转到首页推荐-->
+        <a href="index.html"><img src="pic/index/logo.png" alt="" class="img-responsive"></a>
+      </div>
+      <div class="col-sm-6 col-md-10 hidden-xs">
+        <h3 class="">欢迎登录</h3>
+      </div>
+      <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+        <a href="/index.html" class="a-title"><h4 class="text-center">EGO易购商城</h4></a>
+      </div>
+    </div>
+  </div>
+  <!--主体-->
+  <div class="ego-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="ego-main-center img-rounded ego-main-font">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <h4>用户登录</h4>
+              </div>
+            </div>
+            <!--登录表单-->
+            <form action="#" class="">
+              <div class="ego-main-form">
+                <label for="nickname" id="nicknameJudge"></label>
+                <div class="form-group has-feedback">
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                    <input id="nickname" class="form-control" placeholder="请在这输入您的登录账号" maxlength="16" type="text">
+                  </div>
+                </div>
+                <div class="form-group has-feedback" id="upasswordTrue">
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input id="upassword" class="form-control" placeholder="请在这输入您的登陆密码" maxlength="20" type="password"
+                      aria-describedby="inputGroupFail1Status">
+                    <span id="upasswordSpan" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <div class="hidden-xs hidden-sm hidden-md">
+                  <label class="radio-inline">
+                    <input type="radio" name="loginuserJudge" id="ordinary" value="ordinary" checked>普通用户
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="loginuserJudge" id="root" value="root">管理员
+                  </label>
+                </div>
+                <!--登录按钮-->
+                <p>&nbsp;</p>
+                <div class="form-group has-feedback">
+                  <p class="col-xs-1"></p>
+                  <button type="button" class="btn-mine col-xs-10" id="login">登录</button>
+                  <p class="col-xs-1"></p>
+                </div>
+                <!--下方超链接-->
+                <div class="form-group">
+                  <!--新用户注册-->
+                  <a href="ego_shop_register.html" class="a-mine col-sm-3 col-md-9 col-md-pull-2">注册新用户</a>
+                  <a href="http://www.baidu.com" class="a-mine col-xs-offset-3 col-md-offset-0 col-sm-offset-4 col-lg-offset-0">忘记密码</a>
+                </div>
+                <p>&nbsp;</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--页尾-->
+  <div class="foot">
+    <div class="container">
+      <div class="row " style="margin-bottom: 20px;">
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-12 col-xs-4 center-block"><img class="img-responsive" style="width: 120px;height: 60px;" src="pic/index/foot_logo.PNG" alt=""></div>
+            <div class="col-md-12 col-xs-8 center-block">
+              <span>手机：18569065625（微信同号）</span><br/>
+              <span>服务热线：400-7070-669</span><br/>
+              <span>地址：华南师范大学南海校区软件学院</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row center-block">
+            <div class="col-md-6 col-xs-6">
+              <div class="row center-block"><img class="img-responsive" style="width: 100px;height: 100px;" src="pic/index/foot1.png" alt=""></div>
+              <div class="row center-block"><span style="font-size: 15px;color: white;">淘宝登录</span></div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <div class="row center-block"><img class="img-responsive" style="width: 100px;height: 100px;" src="pic/index/foot2.png" alt=""></div>
+              <div class="row center-block"><span style="font-size: 15px;color: white;">京东服务号</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-12 col-xs-6 center-block" style="margin-bottom: 10px;"><span><a href="#">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">合作招商</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">销售联盟</a></span></div>
+            <div class="col-md-12 col-xs-6">
+              <div class="row center-block" style="margin-bottom: 10px;">
+                <span>服务热线</span><br/>
+                <span style="font-size: 20px;color: white;">400-7070-669</span>
+              </div>
+              <div class="row center-block"><button class="btn btn-primary">在线咨询</button><br/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center">XX©2013-2019 XX公司版权所有 粤ICP备08010314号-43 </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/ego_shop_login.js"></script>
+</body>
+
+</html>

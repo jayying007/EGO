@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Admin_UserOrderDetailDao">
+	<!-- 获取用户订单详情表的所有信息 -->
+	<select id="getUserOrderDetail" resultType="com.pojo.UserOrderDetail">
+		SELECT * FROM ego_user_order_details
+	</select>
+	
+	<!-- 修改用户订单详情表数据-->
+	<update id="updateUserOrderDetail" parameterType="com.pojo.UserOrderDetail">
+		UPDATE ego.ego_user_order_details SET count=#{count} WHERE did=#{did}
+	</update>
+	
+	<!-- 删除用户订单详情表数据 -->
+	<delete id="deleteUserOrderDetail" parameterType="com.pojo.UserOrderDetail">
+		DELETE FROM ego.ego_user_order_details WHERE did=#{did}
+ 	</delete>
+ 	
+</mapper>

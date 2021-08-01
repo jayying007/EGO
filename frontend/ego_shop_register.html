@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>ego易购商城注册</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/offcanvas.min.css" rel="stylesheet">
+  <link href="css/header.css" rel="stylesheet">
+  <link href="css/foot.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="css/ego_shop_register.css" type="text/css">
+
+  <script src="js/offcanvas.js"></script>
+</head>
+
+<body>
+  <!--页头-->
+  <div class="ego-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6  col-md-2 hidden-xs ">
+          <!--点击logo可以直接跳转到首页推荐-->
+          <a href="index.html"><img src="pic/index/logo.png" alt="" class="img-responsive"></a>
+        </div>
+        <div class="col-sm-6 col-md-10 hidden-xs">
+          <h3 class="">欢迎注册</h3>
+        </div>
+        <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+          <a href="/index.html"><h4 class="text-center">EGO易购商城</h4></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--主体-->
+  <div class="ego-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="ego-main-center img-rounded ego-main-font">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <h4>用户注册</h4>
+              </div>
+            </div>
+            <!--注册表单-->
+            <form action="#" class="">
+              <div class="ego-main-form">
+                <label for="nickname" id="nicknameJudge" class=""></label>
+                <div class="form-group has-feedback" id="nicknameTrue">
+                  <!--如果验证通过添加has-success-->
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                    <input id="nickname" class="form-control" placeholder="请在这输入您的登录账号,长度应控制在5~16个字符" maxlength="16"
+                      type="text" aria-describedby="inputGroupSuccess1Status">
+                    <span id="nicknameSpan" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <label for="upassword" id="upasswordJudge" class=""></label>
+                <div class="form-group has-feedback" id="upasswordTrue">
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input id="upassword" class="form-control" placeholder="请在这输入您的登陆密码,长度应控制在6~20个字符" maxlength="20"
+                      type="password" aria-describedby="inputGroupSuccess1Status">
+                    <span id="upasswordSpan" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <label for="repassword" id="repasswordJudge" class=""></label>
+                <div class="form-group has-feedback" id="repasswordTrue">
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input id="repassword" class="form-control" placeholder="请在这再次输入您的登陆密码" maxlength="20"
+                      type="password" aria-describedby="inputGroupSuccess1Status">
+                    <span id="repasswordSpan" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <label for="phone" id="phoneJudge" class=""></label>
+                <div class="form-group has-feedback" id="phoneTrue">
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+                    <input id="phone" class="form-control" placeholder="请在这输入您的手机号" type="text"
+                      aria-describedby="inputGroupSuccess1Status">
+                    <span id="phoneSpan" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <label for="email" id="emailJudge" class=""></label>
+                <div class="form-group has-feedback" id="emailTrue">
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                    <input id="email" class="form-control" placeholder="请在这输入您的邮箱地址" type="text"
+                      aria-describedby="inputGroupSuccess1Status">
+                    <span id="emailSpan" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                  </div>
+                </div>
+              </div>
+              <!--验证码-->
+              <div>
+                <label for="yzm" id="yzmJudge" class="col-xs-12"></label>
+                <div class="form-group has-feedback col-xs-8" id="yzmTrue">
+                  <div class="input-group">
+                    <span class="input-group-addon">验证码</span>
+                    <input id="yzm" class="form-control" placeholder="请在这输入图形验证码" type="text"
+                      aria-describedby="inputGroupSuccess1Status" />
+                    <span id="yzmSpan" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <img src="http://127.0.0.1:5050/yzm" id="yzmImg" class="col-xs-4" />
+
+              </div>
+              <!--注册提交按钮-->
+              <p>&nbsp;</p>
+              <div class="form-group has-feedback">
+                <p class="col-xs-1"></p>
+                <button type="button" class="btn-mine col-xs-10" id="register">提交</button>
+                <p class="col-xs-1"></p>
+              </div>
+              <p>&nbsp;</p>
+              <!--如果有影响就删掉-->
+              <p>&nbsp;</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--页尾-->
+  <div class="foot">
+    <div class="container">
+      <div class="row " style="margin-bottom: 20px;">
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-12 col-xs-4 center-block"><img class="img-responsive" style="width: 120px;height: 60px;" src="/pic/index/foot_logo.PNG" alt=""></div>
+            <div class="col-md-12 col-xs-8 center-block">
+              <span>手机：18569065625（微信同号）</span><br/>
+              <span>服务热线：400-7070-669</span><br/>
+              <span>地址：华南师范大学南海校区软件学院</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row center-block">
+            <div class="col-md-6 col-xs-6">
+              <div class="row center-block"><img class="img-responsive" style="width: 100px;height: 100px;" src="pic/index/foot1.png" alt=""></div>
+              <div class="row center-block"><span style="font-size: 15px;color: white;">淘宝登录</span></div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <div class="row center-block"><img class="img-responsive" style="width: 100px;height: 100px;" src="pic/index/foot2.png" alt=""></div>
+              <div class="row center-block"><span style="font-size: 15px;color: white;">京东服务号</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-12 col-xs-6 center-block" style="margin-bottom: 10px;"><span><a href="#">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">合作招商</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">销售联盟</a></span></div>
+            <div class="col-md-12 col-xs-6">
+              <div class="row center-block" style="margin-bottom: 10px;">
+                <span>服务热线</span><br/>
+                <span style="font-size: 20px;color: white;">400-7070-669</span>
+              </div>
+              <div class="row center-block"><button class="btn btn-primary">在线咨询</button><br/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center">XX©2013-2019 XX公司版权所有 粤ICP备08010314号-43 </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/ego_shop_register.js"></script>
+</body>
+
+
+</html>

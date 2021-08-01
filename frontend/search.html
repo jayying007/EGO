@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>EGO商城</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入 Bootstrap -->
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/offcanvas.min.css" rel="stylesheet">
+  <link href="css/header.css" rel="stylesheet">
+  <link href="css/foot.css" rel="stylesheet">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/offcanvas.js"></script>
+  <style>
+    div {
+      /* border: 1px solid #aaa;  */
+    }
+
+    .subnav ul {
+      list-style: none;
+      margin-left: -40px;
+    }
+
+    .subnav li,
+    .subnav a {
+      float: left;
+      width: 100px;
+      line-height: 35px;
+      text-align: center;
+    }
+
+    .subnav li a:hover {
+      color: white;
+      background-color: #00B2EE;
+    }
+
+    .subnav li a:active {
+      color: white;
+      background-color: #00B2EE;
+    }
+
+    .subnav li .active {
+      color: white;
+      background-color: #00B2EE;
+    }
+
+    .subnav li a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .ego-item a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .title:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width:768px) {
+
+      .subnav li,
+      .subnav a {
+        float: left;
+        width: 70px;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay"></div>
+  <!-- 页头 -->
+  <div class="navbar navbar-default page_header" style="margin: 0;background-color: white;padding-top: 10px;">
+    <div class="container">
+
+      <div class="navbar-header logo">
+        <!-- 头部：LOGO -->
+        <a href="/index.html"><img src="pic/index/logo.png" alt=""></a>
+      </div>
+
+      <!-- 右侧链接和文字 -->
+      <span style="display: none;" class="navbar-text  navbar-link navbar-right" id="nickname">&nbsp;&nbsp;<a
+          id="logout" href="#">退出</a></span>
+      <a style="display: none;" id="login" class="navbar-text  navbar-link navbar-right"
+        href="/ego_shop_login.html">登录</a>
+      <span class="navbar-text navbar-right">|</span>
+      <a style="display: none;" id="regist" class="navbar-text  navbar-link navbar-right"
+        href="/ego_shop_register.html">注册</a>
+      <a style="display: none;" id="personal" class="navbar-text  navbar-link navbar-right"
+        href="/ego_shop_personal.html">个人中心</a>
+      <span class="navbar-text navbar-right">|</span>
+      <a class="navbar-text navbar-link navbar-right" href="#" data-target="#myModal2" id="cart1">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+      </a>
+      <span class="navbar-text navbar-right">|</span>
+      <a class="navbar-text navbar-link navbar-right" href="#">
+        <span class="glyphicon glyphicon-heart"></span>
+      </a>
+
+      <!-- 搜索表单 -->
+      <form action="#" class="navbar-form navbar-right md_search_fm">
+        <div class="input-group">
+          <input id="md_keyword" type="text" placeholder="请输入关键词" class="form-control">
+          <span class="input-group-btn">
+            <button id="md_search" type="button" class="btn bg-primary">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!--导航条-->
+  <div class="navbar navbar-inverse navbar-static-top" style="border-radius: 0;padding: 0;margin: 0;">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- 头部：汉堡包按钮 -->
+        <button type="button" class="navbar-toggle pull-left collapsed" data-toggle="offcanvas" data-target="#egoMenu">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- 登录注册下拉菜单 -->
+        <div class="dropdown">
+          <button type="button" class="navbar-toggle pull-right dropdown-toggle" style="color: white;"
+            data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span>
+          </button>
+          <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1"
+            style="background-color: black;height: 100px;text-align: center;">
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="/login.html" style="font-size: 13px; color: white;">登录</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="/register.html" style="font-size: 13px; color: white;">注册</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#" style="font-size: 13px; color: white;" data-target="#myModal"
+                id="cart2">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+              </a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#" style="font-size: 13px; color: white;">
+                <span class="glyphicon glyphicon-heart"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 导航条折叠部分 -->
+      <div class="collapse navbar-collapse sidebar-offcanvas" id="egoMenu">
+        <!-- 折叠部分：左侧的菜单 -->
+        <ul class="nav navbar-nav">
+          <li><a href="/index.html">首页</a></li>
+          <li><a href="/productList.html?aspect=jianshenfuzhuang" id="jianshenfuzhuang">健身服装</a></li>
+          <li><a href="/productList.html?aspect=jianshenhuju" id="jianshenhuju">健身护具</a></li>
+          <li><a href="/productList.html?aspect=jianshenqicai" id="jianshenqicai">健身器材</a></li>
+          <li><a href="/productList.html?aspect=jianshenshipin" id="jianshenshipin">健身食品</a></li>
+          <li><a href="/productList.html?aspect=yundongxie" id="yundongxie">运动鞋</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 模态框（Modal） -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            请登录
+          </h4>
+        </div>
+        <div class="modal-body">
+          您尚未登录！请登录后查看
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+          </button>
+          <a href="/login.html">
+            <button type="button" class="btn btn-primary">
+              登录
+            </button>
+          </a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+  </div>
+
+
+  <!-- 搜索内容 -->
+  <div class="container">
+    <div class="row noFound" style="display: none;">
+      <div class="col-md-12 col-xs-12" style="padding-top: 150px;padding-bottom: 150px;">
+        <img class="center-block" src="/pic/index/NotFound.png" alt="" style="height: 100px;width: 100px;">
+        <div style="text-align: center;">对不起！找不到对应的商品</div>
+      </div>
+    </div>
+    <div class="row Found" style="display: none;">
+      <div class="col-md-12 col-xs-12">
+        <div class="row subnav" style="border: 1px solid  rgb(202, 205, 206);margin-bottom: 20px;">
+          <ul>
+            <li><a href="#" class="active">默认</a></li>
+            <li><a href="#">销量</a></li>
+            <li><a href="#">价格</a></li>
+            <li><a href="#">最新</a></li>
+          </ul>
+          <span style="margin-right: 10px;float: right;" id="num"> 件商品</span>
+        </div>
+        <div class="row products" style="margin-bottom: 20px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 页尾 -->
+  <div class="foot">
+    <div class="container">
+      <div class="row " style="margin-bottom: 20px;">
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-12 col-xs-4 center-block"><img class="img-responsive" style="width: 120px;height: 60px;"
+                src="/pic/index/foot_logo.PNG" alt=""></div>
+            <div class="col-md-12 col-xs-8 center-block">
+              <span>手机：18569065625（微信同号）</span><br />
+              <span>服务热线：400-7070-669</span><br />
+              <span>地址：华南师范大学南海校区软件学院</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row center-block">
+            <div class="col-md-6 col-xs-6">
+              <div class="row center-block"><img class="img-responsive" style="width: 100px;height: 100px;"
+                  src="/pic/index/foot1.png" alt=""></div>
+              <div class="row center-block"><span style="font-size: 15px;color: white;">淘宝登录</span></div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <div class="row center-block"><img class="img-responsive" style="width: 100px;height: 100px;"
+                  src="/pic/index/foot2.png" alt=""></div>
+              <div class="row center-block"><span style="font-size: 15px;color: white;">京东服务号</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12" style="margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-12 col-xs-6 center-block" style="margin-bottom: 10px;"><span><a
+                  href="#">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">合作招商</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+                  href="#">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">销售联盟</a></span></div>
+            <div class="col-md-12 col-xs-6">
+              <div class="row center-block" style="margin-bottom: 10px;">
+                <span>服务热线</span><br />
+                <span style="font-size: 20px;color: white;">400-7070-669</span>
+              </div>
+              <div class="row center-block"><button class="btn btn-primary">在线咨询</button><br /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-center">XX©2013-2019 XX公司版权所有 粤ICP备08010314号-43 </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      if (window.localStorage) {
+        if (localStorage.getItem("user")) {
+          // 获取登录后的用户信息
+        }
+      }
+      else
+        alert("该浏览器不支持localStorage");
+
+      var url = decodeURI(location.search)
+      var keyword = url.substr(1).split("=")[1]
+      $.ajax({
+        method: 'GET',
+        url: 'http://127.0.0.1:5050/search',
+        data: `keyword=${keyword}`,
+        success: function (data) {
+          if (data.length > 0) {
+            $(".Found").css("display", "")
+            var strNum = $("#num").html()
+            $("#num").html(data.length + strNum)
+            let html = ''
+            for (let i in data) {
+
+              var title = data[i].title
+              if (title.length > 18) {
+                title = title.substr(0, 18) + "..."
+              }
+              var subtitle = data[i].subtitle
+              if (subtitle.length > 10) {
+                subtitle = subtitle.substr(0, 10) + "..."
+              }
+
+              html += `
+                          <div class="col-md-3 col-xs-6" style="margin-bottom: 20px;">
+                            <div class="ego-item" style="border: 1px solid  rgb(202, 205, 206);">
+                              <a href="/product_detail.html?fid=${data[i].fid}">
+                                <div class="row" style="margin:0;">
+                                  <img class="img-responsive center-block" style="height: 210px;width: 170px;" src="${data[i].product_pic.split(",")[0]}" alt="">
+                                </div>
+                                <div class="row" style="padding-left: 20px; padding-right: 20px;">
+                                  <span style="font-size: 18px;color: red;">￥${data[i].price}</span>
+                                  <span style="font-size: 12px;margin:5px;float:right">${data[i].sold_count}</span>
+                                </div>
+                                <div class="row" style="padding-left: 20px; padding-right: 20px;height:40px">
+                                  <span class="title">${title}</span>
+                                </div>
+                                <div class="row" style="padding-left: 20px; padding-right: 20px;height:20px">
+                                  <span style="font-size: 13px; color: gray;">${subtitle}</span>
+                                </div>
+                                <div class="row" style="padding-left: 20px; padding-right: 20px;"> 
+                                  <button class="btn btn-default" style="width: 100%;background-color: rgb(209, 45, 24);color: white;">立即购买</button>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        `
+            }
+            $(".products").html(html)
+          }
+          else {
+            $(".noFound").css("display", "")
+          }
+        }
+      })
+      if (window.sessionStorage) {
+        if (sessionStorage.getItem("uid")) {
+          // 获取登录后的用户信息
+          $("#nickname").css("display", "")
+          $("#personal").css("display", "")
+          var nickname = sessionStorage.getItem("nickname")
+          var html = nickname + $("#nickname").html()
+          $("#nickname").html(html)
+
+          $(".dropdown-menu").css("height", 160)
+          var html2 = `
+                  <li role="presentation">              
+                    <span id="nickname2" role="menuitem" tabindex="-1" href=""  style="font-size: 13px; color: white;"></ span>            
+                  </li>
+                  <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#" style="font-size: 13px; color: white;" data-target="#myModal2" id="cart2">
+                      <span class="glyphicon glyphicon-shopping-cart"></span>
+                    </a>
+                  </li>
+                  <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#" style="font-size: 13px; color: white;">
+                      <span class="glyphicon glyphicon-heart"></span>
+                    </a>
+                  </li>
+                  <li role="presentation">              
+                    <a role="menuitem" tabindex="-1" href="ego_shop_personal.html" style="font-size: 13px; color: white;">个人中心</ a>            
+                  </li>
+                  <li role="presentation">              
+                    <a role="menuitem" tabindex="-1" href="ego_shop_address.html"  style="font-size: 13px; color: white;">地址管理</ a>            
+                  </li>
+                  <li role="presentation">              
+                    <a id="logout2" role="menuitem" tabindex="-1" href="#"  style="font-size: 13px; color: white;">退出</a>            
+                  </li>
+                  `
+          $(".dropdown-menu").html(html2)
+          $("#nickname2").html(nickname)
+        }
+        else {
+          $("#login").css("display", "")
+          $("#regist").css("display", "")
+        }
+      }
+      else
+        alert("该浏览器不支持localStorage")
+
+      $("#md_search").click(function () {
+        var keyword = $("#md_keyword").val()
+        $("#md_keyword").val("")
+        location.href = "/search.html?keyword=" + keyword
+      })
+
+      $("#cart1,#cart2").click(function () {
+        if (sessionStorage.getItem("uid")) {
+          // 获取登录后的用户信息
+          location.href = "/cart.html"
+        }
+        else {
+          $("#myModal2").modal('show')
+        }
+      })
+
+      //  加
+      $("#logout,#logout2").click(function () {
+        sessionStorage.removeItem("uid")
+        sessionStorage.removeItem("nickname")
+        alert("退出成功！")
+        location.href = "index.html"
+      })
+
+    }
+
+  </script>
+</body>
+
+</html>

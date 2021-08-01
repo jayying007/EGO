@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ego商城后端管理系统</title>
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- TABLE STYLES-->
+    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <!-- 顶部栏 header.html -->
+        <div id="header"></div>
+
+        <!-- 左边导航栏项目 -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="index.html"><i class="fa fa-dashboard"></i> 主页 </a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> 商品 </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ego_aspect.html"> 大类表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_family.html"> 商品类别表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_product.html"> 商品表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_product_comment.html"> 商品评价表 </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> 用户 </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ego_user.html"> 用户表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_address.html"> 收货地址表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_shopping_cart.html"> 用户购物车表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_order.html"> 用户订单表 </a>
+                            </li>
+                            <li>
+                                <a href="ego_user_order_details.html"> 用户订单详情 </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="addNewInfo.html" class="active-menu"><i class="fa fa-fw fa-file"></i> 新增数据项 </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- 内容部分  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            新增数据
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="tabbable" id="tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#panel-aspect" data-toggle="tab">大类</a>
+                                    </li>
+                                    <li>
+                                        <a href="#panel-family" data-toggle="tab">商品类别</a>
+                                    </li>
+                                    <li>
+                                        <a href="#panel-product" data-toggle="tab" onclick="getFamilyName()">商品</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+
+                                    <!-- 新增大类 -->
+                                    <div class="tab-pane active" id="panel-aspect">
+                                        <div class="modal-body">
+                                            <form role="form" id='aspectForm'>
+                                                <div class="form-group">
+                                                    <label>大类编号（aspectid）</label>
+                                                    <input readonly='true' class="form-control" value="（该项无需填写，系统会自动生成）"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>大类名（name）</label>
+                                                    <textarea type="text" class="form-control" id="aspectForm-name" placeholder="请填写商品大类名"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" onclick="resetAspectForm()">重做</button>
+                                            <button type="button" class="btn btn-primary" onclick="addNewAspect()">提交</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 新增商品类别 -->
+                                    <div class="tab-pane" id="panel-family">
+                                        <div class="modal-body">
+                                            <form role="form" id='familyForm'>
+                                                <div class="form-group">
+                                                    <label>商品类别编号（fid）</label>
+                                                    <input readonly='true' class="form-control" value="（该项无需填写，系统会自动生成）"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>所属大类</label> 
+                                                    <select class="form-control" id="familyForm-aspectName">
+                                                        <option>健身服装</option>
+                                                        <option>健身护具</option>
+                                                        <option>健身器材</option>
+                                                        <option>健身食品</option>
+                                                        <option>运动鞋</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>商品名（title）</label>
+                                                    <textarea type="text" class="form-control" id="familyForm-title"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>副标题（subtitle）</label>
+                                                    <textarea type="text" class="form-control" id="familyForm-subtitle"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>销量（sold_count）</label>
+                                                    <div class="form-group input-group">
+                                                        <input type="text" class="form-control" id='familyForm-sold_count'>
+                                                        <span class="input-group-addon">人付款</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>商品属性描述（detail_text）</label>
+                                                    <textarea type="text" class="form-control" id="familyForm-detail_text" placeholder="请采用键值对的形式并使用英文半角逗号 ',' 来作为每一属性的分割"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>商品图片（product_pic）</label>
+                                                    <textarea type="text" class="form-control" id="familyForm-product_pic" placeholder="请输入正确的图片路径并使用英文半角逗号 ',' 来作为分割"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>商品详情介绍图片（detail_pic）</label>
+                                                    <textarea type="text" class="form-control" id="familyForm-detail_pic" placeholder="请输入正确的图片路径并使用英文半角逗号 ',' 来作为分割"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" onclick="resetFamilyForm()">重做</button>
+                                            <button type="button" class="btn btn-primary" onclick="addNewFamily()">提交</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 新增商品 -->
+                                    <div class="tab-pane" id="panel-product">
+                                        <div class="modal-body">
+                                            <form role="form" id='productForm'>
+                                                <div class="form-group">
+                                                    <label>商品编号（pid）</label>
+                                                    <input readonly='true' class="form-control" value="（该项无需填写，系统会自动生成）"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>商品类别</label>
+                                                    <select class="form-control" id="productForm-fid">
+                                                        <!-- 这里要查表动态加载 -->
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>价格（price）</label>
+                                                    <div class="form-group input-group">
+                                                        <input type="number" class="form-control" id='productForm-price'>
+                                                        <span class="input-group-addon"><span class="fa fa-rmb"></span></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>属性（property）</label>
+                                                    <textarea type="text" class="form-control" id="productForm-property" placeholder="请以键值对方式输入并使用英文半角逗号 ',' 来作为每一属性的分割"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>storage</label>
+                                                    <div class="form-group input-group">
+                                                        <input type="number" class="form-control" id='productForm-storage'>
+                                                        <span class="input-group-addon">件</span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" onclick="resetProductForm()">重做</button>
+                                            <button type="button" class="btn btn-primary" onclick="addNewProduct()">提交</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- DATA TABLE SCRIPTS -->
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+
+    <!-- Custom Js -->
+    <!--hzj加载表格内容-->
+    <script>
+        $(document).ready(function(){
+            $("#header").load("header.html");
+        });
+
+        //大类表
+        function resetAspectForm(){
+            $('#aspectForm-name').val('')
+        }
+
+        function addNewAspect(){
+            let name = $('#aspectForm-name').val()
+            let newData={
+                name: name
+            }
+            $.ajax({
+                method: 'POST',
+                url: "http://127.0.0.1:5050/egoAdmin/ego_aspect/addData",
+                data: newData,
+                success: function (data, xhr, err) {
+                    console.log(data)
+                    if(data.code==200){
+                        alert(`添加成功！`)
+                        resetAspectForm()
+                    }
+                },
+                error: function (xhr, err) {
+                    alert("添加失败！后台服务器好像遇到了点问题", xhr, err)
+                }
+            })
+        }
+
+        //商品类别表
+        function resetFamilyForm(){
+            $('#familyForm-aspectName').val('健身服')
+            $('#familyForm-title').val('')
+            $('#familyForm-subtitle').val('')
+            $('#familyForm-sold_count').val('')
+            $('#familyForm-detail_text').val('')
+            $('#familyForm-product_pic').val('')
+            $('#familyForm-detail_pic').val('')
+        }
+
+        function addNewFamily(){
+            let aspectid = 0
+            let aspectName = $('#familyForm-aspectName').val()
+            if(aspectName == '健身服装')
+                aspectid = 1
+            else if(aspectName == '健身护具')
+                aspectid = 2
+            else if(aspectName == '健身器材')
+                aspectid = 3
+            else if(aspectName == '健身食品')
+                aspectid = 4
+            else if(aspectName == '运动鞋')
+                aspectid = 5
+            let title = $('#familyForm-title').val()
+            let subtitle = $('#familyForm-subtitle').val()
+            let sold_count = $('#familyForm-sold_count').val() + `人付款`
+            let detail_text = $('#familyForm-detail_text').val()
+            let product_pic = $('#familyForm-product_pic').val()
+            let detail_pic = $('#familyForm-detail_pic').val()
+            let newData={
+                aspectid: aspectid,
+                title: title,
+                subtitle: subtitle,
+                sold_count: sold_count,
+                detail_text: detail_text,
+                product_pic: product_pic,
+                detail_pic: detail_pic
+            }
+            console.log(newData)
+            $.ajax({
+                method: 'POST',
+                url: "http://127.0.0.1:5050/egoAdmin/ego_family/addData",
+                data: newData,
+                success: function (data, xhr, err) {
+                    console.log(data)
+                    if(data.code==200){
+                        alert(`添加成功！`)
+                        resetFamilyForm()
+                    }
+                },
+                error: function (xhr, err) {
+                    alert("添加失败！后台服务器好像遇到了点问题", xhr, err)
+                }
+            })
+        }
+        
+        //商品表
+        function getFamilyName(){
+            $.ajax({
+                method: 'GET',
+                url: "http://127.0.0.1:5050/egoAdmin/ego_family",
+                data: '',
+                success: function (data, xhr, err) {
+                    console.log(data)
+                    let html = `<option value='-1'>无</option>`
+                    for(let i=0;i<data.length;i++){
+                        html += `<option value='${data[i].fid}'>${data[i].title}</option>
+                        `
+                    }
+                    $('#productForm-fid').html(html)
+                },
+                error: function (xhr, err) {
+                    alert("商品类别获取失败", xhr, err)
+                }
+            })
+        }
+        function resetProductForm(){
+            $('#productForm-fid').val('-1')
+            $('#productForm-price').val('')
+            $('#productForm-property').val('')
+            $('#productForm-storage').val('')
+        }
+
+        function addNewProduct(){
+            let fid = $('#productForm-fid').val()
+            let price = $('#productForm-price').val()
+            let property = $('#productForm-property').val()
+            let storage = $('#productForm-storage').val()+`件`
+            let newData={
+                fid: fid,
+                price: price,
+                property: property,
+                storage: storage
+            }
+            console.log(newData)
+            $.ajax({
+                method: 'POST',
+                url: "http://127.0.0.1:5050/egoAdmin/ego_product/addData",
+                data: newData,
+                success: function (data, xhr, err) {
+                    console.log(data)
+                    if(data.code==200){
+                        alert(`添加成功！`)
+                        resetProductForm()
+                    }
+                },
+                error: function (xhr, err) {
+                    alert("添加失败！后台服务器好像遇到了点问题", xhr, err)
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

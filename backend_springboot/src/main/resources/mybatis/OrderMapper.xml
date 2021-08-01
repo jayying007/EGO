@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.dao.OrderDao">
+	
+	<select id="getPreOrder" resultType="com.pojo.JaneProduct">
+		select ego_product.pid,title,property,price,product_pic from ego_product,ego_family where ego_product.fid=ego_family.fid and ego_product.pid in
+		<foreach item="item" index="index" collection="array"
+		open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	
+	<insert id="addOrder" parameterType="com.pojo.JaneOrder"
+	keyProperty="oid" useGeneratedKeys="true">
+		insert into ego_user_order values(null,#{uid},#{aid},0,#{order_time},null,null,null)
+	</insert>
+	
+	<insert id="addOrderDetail" parameterType="com.pojo.JaneOrder"
+	keyProperty="did">
+		insert into ego_user_order_details values(null,#{oid},#{pid},#{count})
+	</insert>
+	
+	<select id="getOrders" resultType="com.pojo.JaneOrder2" parameterType="com.pojo.JaneOrder">
+		select order_time,aid,ego_user_order.oid,title,property,price,count,product_pic,status from ego_product,ego_family,ego_user_order,ego_user_order_details where ego_user_order.uid=#{uid} and ego_user_order.oid=ego_user_order_details.oid and ego_user_order_details.pid=ego_product.pid and ego_product.fid=ego_family.fid
+		<if test="status!=-1">
+			and status=#{status}
+		</if>
+		order by ego_user_order.oid desc
+	</select>
+	<select id="getOrderDetail" resultType="com.pojo.JaneOrder3">
+		select ego_user_order.aid,receiver,phone,postcode,province,city,county,address,title,property,price,count,product_pic,status from ego_family,ego_product,ego_user_address,ego_user_order_details,ego_user_order where ego_user_order_details.pid = ego_product.pid and ego_user_order.aid=ego_user_address.aid and ego_product.fid=ego_family.fid and ego_user_order.oid=#{oid} and ego_user_order.oid=ego_user_order_details.oid
+	</select>
+	
+	<update id="updateOrder" parameterType="Integer">
+		update ego_user_order set status=status+1 where oid=#{oid}
+	</update>
+	
+	<delete id="deleteOrderDetail" parameterType="Integer">
+		delete from ego_user_order_details where oid=#{oid}
+	</delete>
+	<delete id="deleteOrder" parameterType="Integer">
+		delete from ego_user_order where oid=#{oid}
+	</delete>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.dao.CartDao">
+	<!-- 查询用户信息 -->
+	<select id="selectCarts" resultType="com.pojo.JaneCart" parameterType="Integer">
+		select cid,uid,ego_product.pid,title,property,price,count,product_pic from ego_user_shopping_cart,ego_product,ego_family where ego_user_shopping_cart.uid=#{uid} and ego_user_shopping_cart.pid=ego_product.pid and ego_product.fid=ego_family.fid order by ego_product.pid
+	</select>
+	
+	<delete id="deleteCart" parameterType="com.pojo.JaneCart">
+		delete from ego_user_shopping_cart where uid=#{uid} and pid=#{pid}
+	</delete>
+</mapper>

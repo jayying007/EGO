@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>首页-学子商城</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/scaffolding.css" rel="stylesheet">
+    <link href="css/jane.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body onload="showDetail()">
+    <div class="container">
+        <div class="row">
+            <!-- 地址 -->
+            <div class="col-sm-6 col-xs-12 wow bounceInDown">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            地址信息
+                        </h3>
+                    </div>
+                    <div class="panel-body address">
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- 进度条 -->
+            <div class="col-sm-6 col-xs-12 wow swing">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            订单编号：<span id="orderId"></span>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="progress progress-striped active" id="progressBar" style="margin: 5px;">
+
+                        </div>
+                        <div style="font-size: x-large; padding: 5px;padding-top: 20px;">
+                            总价格：￥<span id="totalPrice"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+            <div class="orderDetail"></div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jane.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

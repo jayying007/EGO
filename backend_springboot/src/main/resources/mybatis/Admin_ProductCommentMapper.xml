@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Admin_ProductCommentDao">
+	<!-- 获取商品评价表的所有信息 -->
+	<select id="getProductComment" resultType="com.pojo.ProductComment">
+		SELECT * FROM ego.ego_product_comment
+	</select>
+	
+	<!-- 修改商品评价表数据 -->
+	<update id="updateProductComment" parameterType="com.pojo.ProductComment">
+		UPDATE ego.ego_product_comment SET comment=#{comment} WHERE time=#{time}
+	</update>
+</mapper>
